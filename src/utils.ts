@@ -1,11 +1,12 @@
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import crypto from "crypto";
-import { authOptions } from "../lib/auth-options";
+
+import { authOptions } from "./lib/auth-options";
 
 export function getBaseUrl() {
   return process.env.VERCEL_ENV === "production"
-    ? `https://www.MY-CUSTOM-DOMAIN.com`
+    ? `https://www.MY-CUSTOM-DOMAIN.com` // TODO
     : process.env.VERCEL_URL
       ? `https://${process.env.VERCEL_URL}`
       : `http://localhost:3000`;

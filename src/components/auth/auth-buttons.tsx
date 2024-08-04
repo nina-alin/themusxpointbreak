@@ -2,21 +2,36 @@
 
 import Link from "next/link";
 import { signIn, useSession } from "next-auth/react";
-import React from "react";
+import { User } from "@prisma/client";
+
+import { Skeleton } from "@/components/ui/skeleton";
+import { Button } from "../ui/button";
+import { UserNav } from "./user-nav";
 
 export default function AuthButtons() {
   const { data: session, status } = useSession();
 
+  console.log({ status });
+  if (status === "loading") {
+    return (
+      <div className="flex justify-end gap-4">
+        <Skeleton className="h-9 w-9 rounded-full" />
+      </div>
+    );
+  }
+
   return (
     <div className="flex justify-end gap-4">
       {session && session.user ? (
-        <p>Logged in</p>
+        <UserNav user={session.user as User} />
       ) : (
         <>
-          <button onClick={() => signIn()}>Sign In</button>
-          <button>
+          <Button size={"sm"} variant={"secondary"} onClick={() => signIn()}>
+            Sign In
+          </Button>
+          <Button size={"sm"} asChild className="text-foreground">
             <Link href="/auth/signup">Sign Up</Link>
-          </button>
+          </Button>
         </>
       )}
     </div>

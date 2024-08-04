@@ -2,13 +2,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
 
-import React from "react";
-import { isLogged } from "@/src/utils";
+import { SignUpForm } from "@/components/auth/signup-form";
+import { Button } from "@/components/ui/button";
+
+import { isLogged } from "@/utils";
 
 export const metadata: Metadata = {
-  title: "Sign up for My SaaS - Start Now",
+  title: "Sign up for The MusX Point-Break - Start Now",
   description:
-    "Sign up today at My SaaS to access a personalized [type of service or product] experience. Enjoy exclusive features like [feature 1], [feature 2], and [feature 3]. Join our community and start taking advantage of all the benefits of membership from day one - creating your account is fast, easy and secure!",
+    "Sign up today at The MusX Point-Break to access a personalized music experience. Enjoy exclusive features like [feature 1], [feature 2], and [feature 3]. Join our community and start taking advantage of all the benefits of membership from day one - creating your account is fast, easy and secure!", // TODO
 };
 
 interface Props {
@@ -26,7 +28,7 @@ export default async function signUpPage({ searchParams }: Props) {
         <div className="relative h-full flex-col bg-muted p-10 text-white lg:flex dark:border-r">
           <div className="absolute inset-0 bg-slate-900">
             <Image
-              alt="My SaaS - Authentication"
+              alt="The MusX Point-Break - Authentication"
               src={"/img/bg-1.jpg"}
               fill
               style={{ objectFit: "cover" }}
@@ -47,7 +49,7 @@ export default async function signUpPage({ searchParams }: Props) {
               >
                 <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" />
               </svg>
-              My SaaS
+              The MusX Point-Break
             </Link>
           </div>
           <div className="relative z-20 mt-auto">

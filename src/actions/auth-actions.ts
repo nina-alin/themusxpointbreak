@@ -2,14 +2,14 @@
 
 import React from "react";
 
-import prisma from "../../lib/prisma";
+import { prisma } from "@/lib/prisma";
 import { Prisma, User } from "@prisma/client";
 import * as bcrypt from "bcrypt";
 
 import { sendEmail } from "./email-actions";
 import VerificationTemplate from "../../emails/verification-template";
 
-import { signJwt, verifyJwt } from "../../lib/jwt";
+import { signJwt, verifyJwt } from "@/lib/jwt";
 import ResetPasswordTemplate from "../../emails/reset-password-template";
 
 export async function registerUser(user: Partial<User>) {

@@ -1,12 +1,14 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import React from "react";
-import { isLogged } from "../../../../utils";
-import { SignInForm } from "@/src/components/auth/sign-in-form";
+
+import { Button } from "@/components/ui/button";
+import { SignInForm } from "@/components/auth/signin-form";
+
+import { isLogged } from "@/utils";
 
 export const metadata: Metadata = {
-  title: "Sign In for My SaaS",
+  title: "Sign In for The MusX Point-Break",
   description:
     "Sign in to your account to access your dashboard, manage your account, and more. If you do not have an account, sign up today.",
 };
@@ -23,10 +25,10 @@ export default async function SignInPage({ searchParams }: Props) {
   return (
     <>
       <div className="lg:h-screen flex flex-col-reverse lg:flex-row items-center justify-center px-0">
-        <div className="relative h-full flex-col bg-muted p-10 text-white lg:flex dark:border-r">
+        <div className="relative h-full flex-col bg-muted p-10 text-white lg:flex dark:border-r grow">
           <div className="absolute inset-0 bg-slate-900">
             <Image
-              alt="My SaaS - Authentication"
+              alt="The MusX Point-Break - Authentication"
               src={"/img/bg-1.jpg"}
               fill
               style={{ objectFit: "cover" }}
@@ -47,7 +49,7 @@ export default async function SignInPage({ searchParams }: Props) {
               >
                 <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" />
               </svg>
-              My SaaS
+              The MusX Point-Break
             </Link>
           </div>
           <div className="relative z-20 mt-auto">
@@ -56,29 +58,27 @@ export default async function SignInPage({ searchParams }: Props) {
                 className="text-lg shadow"
                 style={{ textShadow: "1px 1px 10px rgba(0,0,0,0.6)" }}
               >
-                &ldquo;This starter kit has saved me countless hours of work and
-                helped me deliver stunning designs to my clients faster than
-                ever before.&rdquo;
+                &ldquo;I love cats.&rdquo;
               </p>
             </blockquote>
             <p className="mt-6">
-              This background was created by GPT:{" "}
+              Said:{" "}
               <Link
-                href="https://chat.openai.com/g/g-u5PHms7P2-programmer-s-room-artisan"
+                href="https://discord.gg/vV8K3WG7"
                 rel="noopener noreferrer"
                 target="_blank"
                 className="underline underline-offset-2 hover:text-primary"
               >
-                <strong>Programmer&apos;s Room Artisan</strong>
+                <strong>Ileryon</strong>
               </Link>
             </p>
           </div>
         </div>
         <div className="w-auto lg:w-[1000px] min-h-screen p-10 grid place-content-center relative">
           <div className="absolute right-6 top-6">
-            <button>
+            <Button size={"sm"} variant={"secondary"} asChild>
               <Link href="/auth/signup">Sign Up</Link>
-            </button>
+            </Button>
           </div>
           <div className="w-full max-w-[320px]">
             <div className="flex flex-col text-center my-6 space-y-2">
